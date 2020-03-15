@@ -1,14 +1,15 @@
 body {
     margin: 0px;
     overflow: hidden;
+    background-color: black;
   }
   
   .sphere {
-    background-color: transparent;
+    fill: transparent;
   }
   
   .country {
-    fill: lightgreen;
+    fill: darkgray;
     stroke: black;
     stroke-width: 0.05px;
   }
