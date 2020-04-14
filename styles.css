@@ -1,68 +1,164 @@
 body {
-  width: 100%; 
-  height: 100vh;
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #222;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
-
-.vis-title {
-  color: white;
-  font-size: 20px;
-  font-family: "Avenir Next";
-}
-
-.vis-container {
-  width: 80%; 
-  height: 80%; 
-  background-color: #222;
-}
-
-.map-svg {
-  display: block;
-}
-
-.sphere {
-  fill: transparent;
-}
-
-.country {
-  fill: darkgray;
-  stroke: black;
-  stroke-width: 0.05px;
-}
-
-.country:hover {
-  fill: red;
-}
-
-/* date picker  */
-
-.date-container {
-  margin-top: 20px;
-  width: 1211px; 
-  height: 37px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-image: url('./date-picker.png');
-  background-size: cover;
+.names {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+    }
   
+/* Tooltip CSS */
+.d3-tip {
+    line-height: 1.5;
+    font-weight: 400;
+    font-family:"avenir next", Arial, sans-serif;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFA500;
+    border-radius: 1px;
+    pointer-events: none;
 }
 
-.date-bar {
-  width: 100%; 
-  height: 15px; 
-  border-radius: 50px;
-  background-color: red;
+/* Northward tooltips */
+.d3-tip.n:after {
+    content: "\25BC";
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+    text-align: center;
+}
+
+/* Eastward tooltips */
+.d3-tip.e:after {
+    content: "\25C0";
+    margin: -4px 0 0 0;
+    top: 50%;
+    left: -8px;
+}
+
+/* Southward tooltips */
+.d3-tip.s:after {
+    content: "\25B2";
+    margin: 0 0 1px 0;
+    top: -8px;
+    left: 0;
+    text-align: center;
+}
+
+/* Westward tooltips */
+.d3-tip.w:after {
+    content: "\25B6";
+    margin: -4px 0 0 -1px;
+    top: 50%;
+    left: 100%;
+}
+
+.details{
+    color:white;
+}
+
+.title {
+    margin-top: 80px;
+    color: white;
+    font-family: "Avenir Next";
+    font-weight: 500;
+}
+
+.timeline-container {
+    width: 1050px; 
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    border: 1px solid #5E5E5E;
+    /* background-image: url('./timeline.png');
+    background-size: contain;
+    background-repeat: no-repeat; */
+    position:relative;
+}   
+
+.bar {
+    position: absolute;
+    z-index: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: #9E9E9E;
 }
 
 .date-circle {
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
-  background-color: aqua;
+    width: 24px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #222;
+    border-top: 1px solid #5E5E5E;
+    border-bottom: 1px solid #5E5E5E;
+    z-index: 1;
+}
+
+.date-circle:hover {
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.label-container {
+    width: 1065px; 
+    height: 25px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span {
+    color: white;
+    font-family: "Avenir Next";
+    font-weight: 300;
+}
+
+.legend {
+    margin-top: 30px;
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    right: 0;
+    display: flex;
+}
+
+.legend-label-container {
+    width: 50%;
+    height: 100%;
+    margin-top: -45px;
+}
+
+.legend-icon-container {
+    width: 35px;
+    height: 100%;
+}
+
+.legend-icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.legend-label {
+    display: block;
+    text-align: right;
+    font-family: "Avenir Next";
+    font-size: 18px;
+    margin-bottom: 25px;
+    margin-right: 10px;
+}
+
+#confirmed-label {
+    font-size: 19px;
+    font-weight: 600;
 }
